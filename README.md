@@ -10,3 +10,5 @@ Time stamps for each project:
 - 00:47:37 - Fifth Project (Hibernate_Demo_05)
 
 Each timestamp represents a separate project with different concepts covered in the lecture.
+
+Hello!
