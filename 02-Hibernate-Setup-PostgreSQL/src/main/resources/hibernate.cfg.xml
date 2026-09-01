@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- PostgreSQL JDBC Driver -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        
+        <!-- Database URL -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate_learning</property>
+        
+        <!-- Database Credentials -->
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">YOUR_PASSWORD</property>
+        
+        <!-- Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- Format SQL for readability -->
+        <property name="hibernate.format_sql">true</property>
+        
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+    </session-factory>
+</hibernate-configuration>
