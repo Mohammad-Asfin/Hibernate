@@ -1,285 +1,135 @@
 <div align="center">
 
-# 🚀 Hibernate & ORM – Complete Learning Guide
+# 🚀 Hibernate & ORM – Complete Learning Guide (Level 1 to 5)
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Hibernate](https://img.shields.io/badge/Hibernate-7.0.0.Beta3-green.svg)](https://hibernate.org/)
 [![Database](https://img.shields.io/badge/Database-MySQL%20%7C%20PostgreSQL-blue.svg)](https://www.mysql.com/)
 [![Maven](https://img.shields.io/badge/Build-Maven-C71A36.svg)](https://maven.apache.org/)
 
-> A beginner-friendly repository for learning Object Relational Mapping (ORM), Hibernate, database persistence, entity mapping, CRUD operations, HQL, and Native SQL.
+> A masterclass repository for learning Object Relational Mapping (ORM), Hibernate, database persistence, and performance tuning from Beginner to Advanced.
 
 </div>
 
-Welcome to the **Hibernate & ORM Learning Guide**! This repository is designed to help beginners and intermediate developers understand how Java applications interact with relational databases. 
+Welcome to the **Complete Beginner-to-Advanced Hibernate & ORM Learning Repository**! 
 
-We take a comprehensive approach: learning raw SQL fundamentals first, then understanding how Hibernate maps Java objects (like `Student`) to database rows effortlessly.
-
----
-
-## 📖 Table of Contents
-
-- [Introduction](#-introduction)
-- [Learning Progression](#-learning-progression)
-- [What is ORM?](#-what-is-orm)
-- [Hibernate Architecture](#-hibernate-architecture)
-- [Repository Structure](#-repository-structure)
-- [Prerequisites & Setup](#-prerequisites--setup)
-  - [Option A: MySQL Setup](#option-a-mysql-setup-recommended)
-  - [Option B: PostgreSQL Setup](#option-b-postgresql-setup)
-- [Module 1: SQL Fundamentals](#module-1-sql-fundamentals)
-- [Module 2: Entity Mapping](#module-2-entity-mapping)
-- [Module 3: CRUD Operations](#module-3-crud-operations)
-- [Module 4: HQL Queries](#module-4-hql-queries)
-- [Module 5: Native SQL](#module-5-native-sql)
-- [SQL vs Hibernate Comparison](#-sql-vs-hibernate-comparison)
-- [Best Practices](#-best-practices)
-- [Author](#-author)
+This repository is built for **Beginners, College Students, and Backend Developers** moving toward Spring Boot. It starts from raw SQL, moves through JDBC, explains the "Why" of ORM, and takes you all the way to advanced Caching, N+1 problem-solving, and Performance tuning.
 
 ---
 
-## 🎓 Learning Progression
+## 📖 What You Will Learn
 
-Follow this roadmap to master ORM:
-1️⃣ **SQL Fundamentals** ↓ 2️⃣ **JDBC Basics** ↓ 3️⃣ **What is ORM?** ↓ 4️⃣ **Hibernate Setup** ↓ 5️⃣ **Entity Mapping** ↓ 6️⃣ **CRUD Operations** ↓ 7️⃣ **Relationships** ↓ 8️⃣ **HQL** ↓ 9️⃣ **Native SQL** ↓ 🔟 **Spring Data JPA**
-
----
-
-## 🧠 What is ORM?
-
-**ORM** stands for **Object Relational Mapping**. 
-
-Java applications are object-oriented (**Java Objects**), but databases use **Tables, Rows, and Columns**. This creates an **object-relational impedance mismatch**. 
-
-ORM acts as a bridge:
-**Java Object** ↓ **ORM Framework** ↓ **Relational Database**
-
-### The Impedance Mismatch Example
-
-**Java Object:**
-```java
-Student student = new Student();
-student.setName("Elena Gilbert");
-student.setEmail("elena@example.com");
-student.setAge(22);
-```
-
-**Database Table (`students`):**
-| id | name | email | age |
-|---|---|---|---|
-| 1 | Elena Gilbert | elena@example.com | 22 |
-
-**How ORM Maps It:**
-- **Class** → Table (`Student` class maps to `students` table)
-- **Object** → Row (An instance of `Student` is a row)
-- **Field** → Column (`email` maps to `email` column)
+- **SQL Basics**: How relational databases work under the hood.
+- **JDBC & The Boilerplate Problem**: Why developers invented ORM.
+- **Hibernate Fundamentals**: Setup, Entity Mapping, CRUD.
+- **Intermediate Concepts**: Entity Lifecycle, 1-to-1/1-to-N Relationships, Fetching (Lazy/Eager), HQL.
+- **Advanced Hibernate**: 2nd Level Caching, N+1 Query Problem, Optimistic/Pessimistic Locking, Batch Processing.
+- **The Ecosystem**: How JPA relates to Hibernate, and the bridge to Spring Data JPA.
 
 ---
 
-## 🏗️ Hibernate Architecture
+## 🗺️ Complete Learning Roadmap
 
 ```text
-       Java Application
-              │
-              ▼
-          Hibernate
-              │
-       ├── Configuration
-       ├── SessionFactory
-       ├── Session
-       ├── Transaction
-              │
-              ▼
-            JDBC
-              │
-              ▼
-       MySQL / PostgreSQL
+BEGINNER 🟢
+ │
+ ├── 01-SQL-Fundamentals
+ ├── 02-JDBC-to-ORM
+ ├── 03-ORM-Fundamentals
+ └── 04-Hibernate-Setup
+ │
+INTERMEDIATE 🟡
+ │
+ ├── 05-Entity-Mapping
+ ├── 06-CRUD-Operations
+ ├── 07-Entity-Lifecycle
+ ├── 08-Relationships
+ ├── 09-Fetching-and-Cascading
+ ├── 10-HQL-and-Queries
+ ├── 11-Native-SQL
+ ├── 12-Persistence-Context
+ └── 13-Transactions
+ │
+ADVANCED 🟠
+ │
+ ├── 14-ID-Generation
+ ├── 15-Caching
+ ├── 16-Performance
+ └── 17-Advanced-Hibernate
+ │
+NEXT STEP 🔵
+ │
+ └── 18-JPA-vs-Hibernate
 ```
 
 ---
 
-## 📁 Repository Structure
+## ⚙️ How to Run the Projects
 
-The project is divided into logical, step-by-step modules:
+This repository uses **Maven**. You can run these modules using your favorite IDE or the command line.
 
-```text
-Hibernate/
-├── 01-SQL-Fundamentals/             # Learn pure SQL before learning Hibernate
-├── 02-Hibernate-Setup-PostgreSQL/   # Minimal setup for PostgreSQL
-├── 03-Hibernate-Setup-MySQL/        # Minimal setup for MySQL
-├── 04-Entity-Mapping/               # @Entity, @Id, @Column annotations
-├── 05-CRUD-Operations/              # Create, Read, Update, Delete with Hibernate
-├── 06-HQL-Queries/                  # Hibernate Query Language examples
-├── 07-Native-SQL/                   # Raw SQL execution via Hibernate
-└── README.md
+### Option 1 — IntelliJ IDEA
+1. Open IntelliJ IDEA.
+2. Click **File > Open** and select the root `Hibernate` folder (or any specific module folder like `06-CRUD-Operations`).
+3. IntelliJ will detect the `pom.xml` and download dependencies automatically.
+4. Open any `Main.java` or `*Example.java` file.
+5. Click the **Green Play Button** next to the `main` method.
+
+### Option 2 — Eclipse
+1. Open Eclipse.
+2. Click **File > Import > Maven > Existing Maven Projects**.
+3. Browse to the specific module folder (e.g., `06-CRUD-Operations`) and click Finish.
+4. Wait for Maven to download dependencies.
+5. Right-click the Java file containing the `main` method -> **Run As > Java Application**.
+
+### Option 3 — Command Line
+If you have Maven installed:
+```bash
+cd 06-CRUD-Operations
+mvn clean compile exec:java -Dexec.mainClass="com.hibernate.learning.crud.CreateExample"
 ```
+
+### What are Dependencies?
+Dependencies (like the MySQL Driver and Hibernate Core) are external libraries your code needs to run. 
+Maven reads the `pom.xml` file, connects to the central repository, and downloads them automatically into your local `.m2` folder. If dependencies are missing, right-click your project in your IDE and select **Maven > Reload Project** or run `mvn clean install` in the terminal.
 
 ---
 
-## ⚙️ Prerequisites & Setup
+## ❗ Troubleshooting
 
-- ☕ **Java JDK 21**
-- 📦 **Maven**
-- 🗄️ **MySQL** (Port 3306) or **PostgreSQL** (Port 5432)
-
-### Option A: MySQL Setup (Recommended)
-1. Install MySQL and start the server.
-2. Create the database: `CREATE DATABASE hibernate_learning;`
-3. In any module (e.g., `03-Hibernate-Setup-MySQL/src/main/resources/hibernate.cfg.xml`), configure the connection:
-```xml
-<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_learning</property>
-<property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password">YOUR_PASSWORD</property>
-<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-```
-*Note: Never commit your real database passwords to version control!*
-
-### Option B: PostgreSQL Setup
-1. Create a database `hibernate_learning` in pgAdmin/psql.
-2. Update `hibernate.cfg.xml`:
-```xml
-<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate_learning</property>
-<property name="hibernate.connection.username">postgres</property>
-<property name="hibernate.connection.password">YOUR_PASSWORD</property>
-<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-```
-
----
-
-## Module 1: SQL Fundamentals
-
-Before diving into Hibernate, check out `01-SQL-Fundamentals/TVD_Characters.sql`. 
-It contains practical SQL covering:
-
-```sql
--- CREATE TABLE
-CREATE TABLE students (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(150) UNIQUE,
-    age INT
-);
-
--- INSERT (Create)
-INSERT INTO students (name, email, age) 
-VALUES ('Elena Gilbert', 'elena@example.com', 22);
-
--- SELECT (Read)
-SELECT * FROM students WHERE age > 20;
-
--- UPDATE (Update)
-UPDATE students SET age = 24 WHERE name = 'Elena Gilbert';
-
--- DELETE (Delete)
-DELETE FROM students WHERE name = 'Caroline Forbes';
-```
-*⚠️ Always use a `WHERE` clause in `UPDATE` and `DELETE` queries to prevent modifying the entire table!*
-
----
-
-## Module 2: Entity Mapping
-
-In `04-Entity-Mapping`, we map the `Student` Java class to the `students` table.
-
-```java
-@Entity
-@Table(name = "students")
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(name = "name", nullable = false)
-    private String name;
-}
-```
-- `@Entity`: Marks class as a persistent entity.
-- `@Table`: Specifies table name.
-- `@Id`: Marks primary key.
-- `@GeneratedValue`: Auto-increments the ID.
-
----
-
-## Module 3: CRUD Operations
-
-See `05-CRUD-Operations` for complete examples.
-
-### CREATE
-```java
-Student student = new Student("Damon Salvatore", "damon@example.com", 25);
-session.persist(student);
-```
-**Hibernate Generated SQL:**
-`INSERT INTO students (age, email, name) VALUES (?, ?, ?)`
-
-### READ
-```java
-Student student = session.get(Student.class, 1L);
-```
-**Hibernate Generated SQL:**
-`SELECT * FROM students WHERE id = ?`
-
-### UPDATE
-```java
-Student student = session.get(Student.class, 1L);
-student.setAge(26);
-session.merge(student);
-```
-
-### DELETE
-```java
-Student student = session.get(Student.class, 1L);
-session.remove(student);
-```
-
----
-
-## Module 4: HQL Queries
-
-In `06-HQL-Queries`, we learn **Hibernate Query Language**. HQL works with Java Objects and properties, NOT tables and columns!
-
-```java
-// Select all students
-Query<Student> query = session.createQuery("FROM Student", Student.class);
-List<Student> students = query.list();
-
-// Select with condition
-Query<Student> query2 = session.createQuery("FROM Student WHERE age > 22", Student.class);
-```
-
----
-
-## Module 5: Native SQL
-
-In `07-Native-SQL`, we use raw database SQL queries when HQL isn't enough (e.g., complex joins or DB-specific functions).
-
-```java
-String sql = "SELECT * FROM students";
-NativeQuery<Student> query = session.createNativeQuery(sql, Student.class);
-List<Student> students = query.list();
-```
-
----
-
-## 🧠 SQL vs Hibernate Comparison
-
-| Operation | SQL (Manual) | Hibernate (Automatic) |
+| Error | Cause | Solution |
 |---|---|---|
-| **Insert** | `INSERT INTO students (name, email) VALUES ('Bonnie Bennett', 'bonnie@example.com');` | `session.persist(student);` |
-| **Read** | `SELECT * FROM students WHERE id = 1;` | `session.get(Student.class, 1L);` |
-| **Update** | `UPDATE students SET age = 23 WHERE id = 1;` | `student.setAge(23); session.merge(student);` |
-| **Delete** | `DELETE FROM students WHERE id = 1;` | `session.remove(student);` |
+| **Database Connection Failed** | MySQL/PostgreSQL is not running, or password in `hibernate.cfg.xml` is wrong. | Start your DB server. Check port (3306/5432). Update `YOUR_PASSWORD` in config. |
+| **JDBC Driver Not Found** | Maven did not download the dependencies. | Reload Maven project or run `mvn clean install`. |
+| **Unknown Entity** | You forgot the `@Entity` annotation or forgot to add `<mapping class="..."/>` in config. | Add `@Entity` to your class and `<mapping class="com.yourpackage.Class"/>` to `hibernate.cfg.xml`. |
+| **Table Does Not Exist** | Database doesn't have the table, and `hbm2ddl.auto` is not set to `update`. | Set `<property name="hibernate.hbm2ddl.auto">update</property>` in your config. |
+| **LazyInitializationException** | You tried to access a LAZY loaded collection after the Hibernate `Session` was closed. | Initialize the collection before closing the session, or use a `JOIN FETCH` in HQL. |
+| **Transaction Required** | You tried to `persist()`, `merge()`, or `remove()` without starting a transaction. | Always wrap modifications in `session.beginTransaction()` and `transaction.commit()`. |
 
 ---
 
-## 💡 Best Practices
+## 🎓 Interview Preparation
 
-- **Use Meaningful Domain Names:** Avoid generic names like "Test" or "Alien". Use `Student`, `Employee`, `Character`.
-- **Transactions:** Always wrap database modifications (`persist`, `merge`, `remove`) in a `Transaction`.
-- **Auto DDL:** Use `hibernate.hbm2ddl.auto=update` for development, but switch to `validate` or `none` in production.
-- **DTOs:** Do not expose raw entities to your REST API endpoints; convert them to Data Transfer Objects (DTOs) first.
+### Beginner Level
+- **What is ORM?** Object Relational Mapping. It bridges the gap between object-oriented Java classes and relational database tables.
+- **What is Hibernate?** An ORM framework for Java that implements the JPA specification.
+- **What is an Entity?** A Java class mapped to a database table using the `@Entity` annotation.
+- **What is Session?** A single-threaded, short-lived object representing a conversation between the application and the persistent store.
+- **What is SessionFactory?** A thread-safe, heavyweight, immutable object that creates `Session` instances. Usually, there is one per database.
+
+### Intermediate Level
+- **What is the entity lifecycle?** The states an entity goes through: Transient, Persistent (Managed), Detached, and Removed.
+- **What is LAZY loading?** Related entities/collections are only fetched from the database when their getter method is explicitly called.
+- **What is cascading?** Propagating entity state transitions (like persist or remove) from a parent entity to its child entities.
+- **What is dirty checking?** Hibernate automatically detects modifications to managed entities within a transaction and executes UPDATE statements upon commit.
+- **What is HQL?** Hibernate Query Language. An object-oriented query language that queries Java objects and properties instead of database tables and columns.
+
+### Advanced Level
+- **What is the N+1 problem?** Executing 1 query to fetch a list of parent entities, and then N additional queries to fetch their related children. Solved via `JOIN FETCH`.
+- **What is the second-level cache?** A cache scoped to the `SessionFactory`. It stores entity data across multiple sessions to reduce database hits.
+- **What is optimistic locking?** Using a `@Version` field to prevent lost updates in highly concurrent applications without locking database rows.
+- **How do you improve Hibernate performance?** Avoid N+1 queries, use pagination, enable batch inserts/updates, prefer LAZY fetching, and utilize caching.
+- **What is the persistence context?** The first-level cache. A staging area within a `Session` where Hibernate manages persistent entities.
 
 ---
 
