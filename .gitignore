@@ -1,1 +1,30 @@
-/.metadata/
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# MacOS
+.DS_Store
